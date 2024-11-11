@@ -151,6 +151,7 @@
             border-radius: 10px;
             overflow: hidden;
             transition: transform 0.3s;
+            
         }
 
         .project-card:hover {
@@ -159,11 +160,11 @@
 
         .project-img {
             width: 100%;
-            height: 200px;
-            background: #4a3b8c;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+    height: 0;
+    padding-bottom: 66.67%; /* 3:2 aspect ratio */
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
         }
 
         .project-content {
@@ -302,7 +303,7 @@
     </section>
 
     <section id="skills">
-        <h2 class="section-title">Skills</h2>
+        <h2 class="section-title">Tech Skills</h2>
         <div class="skills-grid">
             <div class="skill-card">
                 <i class="devicon-unity-plain"></i>
@@ -353,15 +354,41 @@
                 <h3>3D Scanning</h3>
             </div>
         </div>
+        <div class="skills-grid"></div>
+        <h2 class="section-title">Soft Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <i class="fa-regular fa-lightbulb"></i>
+                <h3>Critical Thinking</h3>
+            </div>
+            <div class="skill-card">
+                <i class="fa-solid fa-user"></i>
+                <h3>Conflict Resolution</h3>
+            </div>
+            <div class="skill-card">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <h3>Curiosity</h3>
+            </div>
+            <div class="skill-card">
+                <i class="fa-solid fa-star"></i>
+                <h3>Growth Mindset</h3>
+            </div>
+            <div class="skill-card">
+                <i class="fa-brands fa-redhat"></i>
+                <h3>Deductive Reasoning</h3>
+            </div>
+            <div class="skill-card">
+                <i class="fa-regular fa-heart"></i>
+                <h3>Empathy</h3>
+            </div>
+        </div>
     </section>
 
     <section id="projects">
         <h2 class="section-title">Projects</h2>
         <div class="projects-grid">
             <div class="project-card">
-                <div class="project-img">
-                    <i class="fas fa-chart-line fa-3x"></i>
-                </div>
+                <div class="project-img" style="background-image: url('img/ScanProj.jpg')" onclick="window.location.href='projects/ScanProj.pdf'"></div>
                 <div class="project-content">
                     <h3>3D Scanning Scientific Research</h3>
                     <p>Research accuracy of various 3D scanning applications on mobile devices.</p>
@@ -373,9 +400,7 @@
                 </div>
             </div>
             <div class="project-card">
-                <div class="project-img">
-                    <i class="fas fa-chart-line fa-3x"></i>
-                </div>
+                <div class="project-img" style="background-image: url('img/SeismicProj.png')" onclick="window.location.href='https://github.com/FabrizioDeFiore/NASA_SpaceApp2024_ShakeItOff_Space'"></div>
                 <div class="project-content">
                     <h3>Seismic Detection around space</h3>
                     <p>Neural network to differenitate between Lunar/Mars quakes and background noise, along with a Unity data visualisation of the neural network output.</p>
@@ -388,9 +413,7 @@
                 </div>
             </div>
             <div class="project-card">
-                <div class="project-img">
-                    <i class="fas fa-chart-line fa-3x"></i>
-                </div>
+                <div class="project-img" style="background-image: url('img/CloneProj.png')" onclick="window.location.href='https://github.com/FlashKaJR/College-Work-4'"></div>
                 <div class="project-content">
                     <h3>Virtual person cloning</h3>
                     <p>As a part of a college project for creating a character and animations I have used my 3D Scanning skills to bring a person into a game.</p>
@@ -402,9 +425,7 @@
                 </div>
             </div>
             <div class="project-card">
-                <div class="project-img">
-                    <i class="fas fa-chart-line fa-3x"></i>
-                </div>
+                <div class="project-img" style="background-image: url('img/OptimizationProj.png')" onclick="window.location.href='https://en.wikipedia.org/wiki/Program_optimization'"></div>
                 <div class="project-content">
                     <h3>Memory Optimization for High-Density Assets</h3>
                     <p>This is a Unreal Engine project focused on optimizing the memory usage in RAM and VRAM with minimal visual impact for better game performance.</p>
@@ -415,9 +436,7 @@
                 </div>
             </div>
             <div class="project-card">
-                <div class="project-img">
-                    <i class="fas fa-chart-line fa-3x"></i>
-                </div>
+                <div class="project-img" style="background-image: url('img/MovieProj.png')" onclick="window.location.href='https://en.wikipedia.org/wiki/SQL'"></div>
                 <div class="project-content">
                     <h3>Movie database with JDBC</h3>
                     <p>This is a personal/college project, made for keeping track of movies/shows with personal ratings that I have watched and planning to watch in the future</p>
@@ -429,9 +448,7 @@
                 </div>
             </div>
             <div class="project-card">
-                <div class="project-img">
-                    <i class="fas fa-chart-line fa-3x"></i>
-                </div>
+                <div class="project-img" style="background-image: url('img/EclipseProj.png')" onclick="window.location.href='https://github.com/piotrWarkocki2003/SpaceAppsNominees'"></div>
                 <div class="project-content">
                     <h3>Educational VR Game About Eclipses</h3>
                     <p>This game is a part of the NASA Hackathon challenge where we have made VR game teaching players about solar and lunar eclipses and how they occur.</p>
