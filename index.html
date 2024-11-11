@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorin Stoleru - Portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+          
+    <style>
+        :root {
+            --dark-purple: #2D1B69;
+            --light-purple: #6B4DE6;
+            --accent-purple: #8464FF;
+            --text-color: #E4E4E4;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--dark-purple);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: rgba(45, 27, 105, 0.95);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            padding: 1rem 0;
+            backdrop-filter: blur(5px);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent-purple);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-purple);
+        }
+
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        #hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(45deg, var(--dark-purple), var(--light-purple));
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            padding: 1rem 2rem;
+            background-color: var(--accent-purple);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: transform 0.3s;
+            text-decoration: none;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            color: var(--accent-purple);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-card {
+            background: rgba(107, 77, 230, 0.1);
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-card i {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-purple);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: rgba(107, 77, 230, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-img {
+            width: 100%;
+            height: 200px;
+            background: #4a3b8c;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-tech {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tech-tag {
+            background: var(--accent-purple);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.9rem;
+        }
+
+        .achievements-list {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .achievement-item {
+            background: rgba(107, 77, 230, 0.1);
+            padding: 2rem;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .achievement-icon {
+            font-size: 2.5rem;
+            color: var(--accent-purple);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .contact-form {
+            background: rgba(107, 77, 230, 0.1);
+            padding: 2rem;
+            border-radius: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid var(--light-purple);
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            color: var(--text-color);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            color: var(--text-color);
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-purple);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(45, 27, 105, 0.95);
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">SS</div>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#achievements">Achievements</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <section id="hero">
+        <div class="hero-content">
+            <h1>Sorin Stoleru</h1>
+            <p>Game/Software Developer | Problem Solver | Tech Enthusiast</p>
+            <a href="#contact" class="cta-button">Get in Touch</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2 class="section-title">Hello!</h2>
+        <h3>I'm Sorin, a game developer student currently working on completing bachelor's degree.</h3>
+        <h3>I have a passion for creating games and software that are fun, engaging and visually appealing.</h3>
+        <h3>I am a very curious person when it comes to how things work behind the scenes, that's how I got interested in game development and software overall.</h3>
+
+    </section>
+
+    <section id="skills">
+        <h2 class="section-title">Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <i class="devicon-unity-plain"></i>
+                <h3>Unity</h3>
+            </div>
+            <div class="skill-card">
+                <i class="devicon-unrealengine-original"></i>
+                <h3>Unreal Engine</h3>
+            </div>
+            <div class="skill-card">
+                <i class="devicon-csharp-plain"></i>
+                <h3>C#</h3>
+            </div>
+            <div class="skill-card">
+                <i class="devicon-cplusplus-plain"></i>
+                <h3>C++</h3>
+            </div>
+            <div class="skill-card">
+                <i class="devicon-java-plain"></i>
+                <h3>JAVA</h3>
+            </div>
+            <div class="skill-card">
+                <i class="devicon-mysql-original"></i>
+                <h3>SQL</h3>
+            </div>
+            <div class="skill-card">
+                <i class="devicon-python-plain"></i>
+                <h3>Python</h3>
+            </div>
+            <div class="skill-card">
+                <i class="devicon-blender-original"></i>
+                <h3>Blender</h3>
+            </div>
+            <div class="skill-card">
+                <i class="fa-solid fa-cube"></i>
+                <h3>Fusion 360</h3>
+            </div>
+            <div class="skill-card">
+                <i class="devicon-photoshop-plain"></i>
+                <h3>Photoshop</h3>
+            </div>
+            <div class="skill-card">
+                <i class="fa-solid fa-building-columns"></i>
+                <h3>3D Printing</h3>
+            </div>
+            <div class="skill-card">
+                <i class="fa-solid fa-barcode"></i>
+                <h3>3D Scanning</h3>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2 class="section-title">Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-img">
+                    <i class="fas fa-chart-line fa-3x"></i>
+                </div>
+                <div class="project-content">
+                    <h3>3D Scanning Scientific Research</h3>
+                    <p>Research accuracy of various 3D scanning applications on mobile devices.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">CloudCompare</span>
+                        <span class="tech-tag">Blender</span>
+                        <span class="tech-tag">Fusion 360</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-img">
+                    <i class="fas fa-chart-line fa-3x"></i>
+                </div>
+                <div class="project-content">
+                    <h3>Seismic Detection around space</h3>
+                    <p>Neural network to differenitate between Lunar/Mars quakes and background noise, along with a Unity data visualisation of the neural network output.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">PyTorch</span>
+                        <span class="tech-tag">Unity</span>
+                        <span class="tech-tag">C#</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-img">
+                    <i class="fas fa-chart-line fa-3x"></i>
+                </div>
+                <div class="project-content">
+                    <h3>Virtual person cloning</h3>
+                    <p>As a part of a college project for creating a character and animations I have used my 3D Scanning skills to bring a person into a game.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Unity</span>
+                        <span class="tech-tag">Blender</span>
+                        <span class="tech-tag">C#</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-img">
+                    <i class="fas fa-chart-line fa-3x"></i>
+                </div>
+                <div class="project-content">
+                    <h3>Memory Optimization for High-Density Assets</h3>
+                    <p>This is a Unreal Engine project focused on optimizing the memory usage in RAM and VRAM with minimal visual impact for better game performance.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Unreal Engine</span>
+                        <span class="tech-tag">C++</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-img">
+                    <i class="fas fa-chart-line fa-3x"></i>
+                </div>
+                <div class="project-content">
+                    <h3>Movie database with JDBC</h3>
+                    <p>This is a personal/college project, made for keeping track of movies/shows with personal ratings that I have watched and planning to watch in the future</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">SQL</span>
+                        <span class="tech-tag">JAVA</span>
+                        <span class="tech-tag">JDBC</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-img">
+                    <i class="fas fa-chart-line fa-3x"></i>
+                </div>
+                <div class="project-content">
+                    <h3>Educational VR Game About Eclipses</h3>
+                    <p>This game is a part of the NASA Hackathon challenge where we have made VR game teaching players about solar and lunar eclipses and how they occur.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Unity</span>
+                        <span class="tech-tag">Blender</span>
+                        <span class="tech-tag">C#</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="achievements">
+        <h2 class="section-title">Achievements</h2>
+        <div class="achievements-list">
+            <div class="achievement-item">
+                <div class="achievement-icon">
+                    <i class="fas fa-trophy"></i>
+                </div>
+                <div>
+                    <h3>NASA Hackathon 2nd Place Winner 2023 With Global Nomination</h3>
+                    <p>Developed a educational game teaching players about solar eclipses in a team of 6.</p>
+                </div>
+            </div>
+            <div class="achievement-item">
+                <div class="achievement-icon">
+                    <i class="fas fa-plane"></i>
+                </div>
+                <div>
+                    <h3>Erasmus programme</h3>
+                    <p>I have traveled to IPCA Portugal to make my research in technology as well as language and culture on the side.</p>
+                </div>
+            </div>
+            <div class="achievement-item">
+                <div class="achievement-icon">
+                    <i class="fas fa-trophy"></i>
+                </div>
+                <div>
+                    <h3>NASA Hackathon 3rd Place Winner 2024 With Global Nomination</h3>
+                    <p>Developed a neural network detecting quakes on Moon and Mars in a team of 2.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="section-title">Contact Me</h2>
+        <div class="contact-grid">
+            
+            <div>
+                <h3>Connect With Me</h3>
+                <p>Feel free to reach out for collaborations or just a friendly chat.</p>
+                <div class="social-links">
+                    <a href="https://github.com/FlashKaJR"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/sorin-stoleru/"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:stolerusordev@gmail.com"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Reach me at stolerusordev@gmail.com</p>
+    </footer>
+</body>
+</html>
